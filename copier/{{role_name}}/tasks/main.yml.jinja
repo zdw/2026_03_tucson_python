@@ -1,0 +1,13 @@
+---
+# {{ role_name }} tasks/main.yml
+#
+# SPDX-FileCopyrightText: {{ year }} {{ author }}
+# SPDX-License-Identifier: {{ license }}
+
+{% raw %}
+- name: Include OS-specific vars
+  ansible.builtin.include_vars: "{{ ansible_facts['os_family'] }}.yml"
+
+- name: Include OS-specific tasks
+  ansible.builtin.include_tasks: "{{ ansible_facts['os_family'] }}.yml"
+{% endraw -%}

@@ -1,0 +1,13 @@
+---
+# {{ role_name }} molecule/default/verify.yml
+#
+# SPDX-FileCopyrightText: {{ year }} {{ author }}
+# SPDX-License-Identifier: {{ license }}
+
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Example assertion
+      ansible.builtin.assert:
+        that: true

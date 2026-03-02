@@ -1,0 +1,33 @@
+---
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2026 Zack Williams <zdw@zackofalltrades.com>
+
+role_name:
+  type: str
+  help: What is the Ansible role name?
+
+os_families:
+  type: str
+  help: What OS families should be supported by this role?
+  multiselect: true
+  default:
+    - Debian
+  choices:
+    - Debian
+    - RedHat
+
+license:
+  type: str
+  help: What license does this role use?
+  choices:
+    - MIT
+    - Apache-2.0
+
+author:
+  type: str
+  help: What is your name (for license attribution)?
+
+year:
+  type: int
+  default: 2026
+  help: What year for the license?

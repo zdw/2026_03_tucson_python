@@ -1,0 +1,26 @@
+---
+# {{ role_name }} molecule/default/molecule.yml
+#
+# SPDX-FileCopyrightText: {{ year }} {{ author }}
+# SPDX-License-Identifier: {{ license }}
+
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: "debian-13-priv"
+    image: "molecule-systemd:debian-13"
+    command: ${MOLECULE_COMMAND:-""}
+    pre_build_image: true
+    privileged: true
+    cgroupns_mode: "host"
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
+    tmpfs:
+      - "/run"
+      - "/tmp"
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

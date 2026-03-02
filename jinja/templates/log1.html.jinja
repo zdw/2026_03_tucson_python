@@ -1,0 +1,14 @@
+{% extends "common.html.jinja" %}
+{% block content %}
+
+  <p>Generated on: {{ gen_time }}<p>
+
+  <ul>
+  {% for row in log_rows %}
+    <li>
+    {{ row.timestamp | tsdatetime }} <span class="{{ row.level }}"> {{ row.level }}</span> - {{ row.message }}
+    </li>
+  {% endfor %}
+  </ul>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "common.html.jinja" %}
+{% block content %}
+
+  <h1>Only Errors!</h1>
+
+  <p>Generated on: {{ gen_time }}<p>
+
+  <table>
+    <thead>
+    {% for header in log_headers %}
+      <th>{{ header | capitalize }}</th>
+    {% endfor %}
+    </thead>
+
+    <tbody>
+      {% for row in log_rows %}
+      {% if row.level == "ERROR" %}
+      <tr>
+        <th>{{ row.timestamp | tsdatetime }}</th>
+        <th class="{{ row.level }}"> {{ row.level }}</th>
+        <th>{{ row.message }}</th>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
+

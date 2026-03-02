@@ -1,0 +1,8 @@
+version = 1
+
+[[annotations]]
+path = ["README.md", "*/README.md", "copier/**", "jinja/templates/*", "jinja/*.csv"]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Zack Williams <zdw@zackofalltrades.com>"
+SPDX-License-Identifier = "MIT"
+

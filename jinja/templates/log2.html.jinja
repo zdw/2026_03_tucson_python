@@ -1,0 +1,24 @@
+{% extends "common.html.jinja" %}
+{% block content %}
+
+  <p>Generated on: {{ gen_time }}<p>
+
+  <table>
+    <thead>
+    {% for header in log_headers %}
+      <th>{{ header | capitalize }}</th>
+    {% endfor %}
+    </thead>
+
+    <tbody>
+      {% for row in log_rows %}
+      <tr>
+        <th>{{ row.timestamp | tsdatetime }}</th>
+        <th class="{{ row.level }}"> {{ row.level }}</th>
+        <th>{{ row.message }}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

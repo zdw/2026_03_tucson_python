@@ -1,0 +1,13 @@
+---
+# {{ role_name }} molecule/default/converge.yml
+#
+# SPDX-FileCopyrightText: {{ year }} {{ author }}
+# SPDX-License-Identifier: {{ license }}
+
+- name: Converge
+  hosts: all
+
+  tasks:
+    - name: "Include {{ role_name }}"
+      ansible.builtin.include_role:
+        name: "{{ role_name }}"
