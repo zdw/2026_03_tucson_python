@@ -70,7 +70,7 @@ common kinds are:
   {% endif %}`
 
 Also, various additional characters such as `-` are used for whitespace control
-- you may want to put that `{% end %}` on it's own line but not create an empty
+- you may want to put that `{% end %}` on its own line but not create an empty
 line, which can be done with `{%- end -%}`
 
 > Note: The PyPI package name is [Jinja2](https://pypi.org/project/Jinja2/),
@@ -89,7 +89,7 @@ Some implementations don't add this extension, which can cause problems with
 linters that match on file extension but aren't expecting the template tags.
 
 > Tip: If you like editor highlighting of a language but you're editing a
-> template file that ends in `.jinja`, instruct the the editor to highlight
+> template file that ends in `.jinja`, instruct the editor to highlight
 > with a different file format.  In Vim this is done with the `set
 > filetype=html` (replacing `html` with your desired language) using command
 > mode.
@@ -105,12 +105,12 @@ In the output, you want the time to be displayed in a human format, the lines
 to have colors relative to their level, and then the message.
 
 There's a script that will perform these actions - to run it, source the
-virtualenv  (`source venv_tutorial/bin/activate`) then go into the `jinja/`
+virtualenv (`source venv_tutorial/bin/activate`) then go into the `jinja/`
 directory and run:
 
-   python log_render.py
+    python log_render.py
 
-And look at the HTML output int he same directory
+And look at the HTML output in the same directory
 
 There are 3 templates in `jinja/templates` that are used to convert the data to
 HTML. They each generate a different format, and share a common HTML wrapper:
@@ -192,8 +192,7 @@ can be found in the documentation, but the one's we'll be looking at are these:
 - Play: Executing a set of Roles and Tasks given in a Playbook.
 
 In this tutorial, we'll be creating a new Role that deploys a Python web
-application behind a [nginx](https://nginx.org) reverse proxy - this is a
-typical configuration when TLS termination is required.
+application.
 
 ### Creating a role with Copier
 
@@ -223,19 +222,19 @@ structure](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playb
 
 ### Testing an Ansible role with Molecule
 
-Molecule is a testing framework for Ansible roles.  It allows you to test a
-role by running it against a Docker container or VM.  Beyond checks for
+Molecule is a testing framework for Ansible roles. It allows you to test a
+role by running it against a Docker container or VM. Beyond checks for
 functionality, it also verifies that tasks are idempotent. You can also write
 functionality tests.
 
 > NOTE: If you're testing generation of roles, don't do it in a folder that is
 > `.gitignore` 'd or Molecule will break with a [cryptic error that looks like
 > it can't open a file that
-> exists](https://github.com/ansible/molecule/issues/4117).  I wasted about an
+> exists](https://github.com/ansible/molecule/issues/4117). I wasted about an
 > hour with this.
 
 Molecule needs to know where to find roles, as one role can include another -
-this can be set via a environmental variable:
+this can be set via an environmental variable:
 
     cd ansible/roles
     export ANSIBLE_ROLES_PATH=$(pwd)
@@ -255,7 +254,7 @@ https://github.com/timcolson/workshop-1001
 > runner instead of running Flask directly, and then a webserver like nginx for
 > TLS termination or load balancing
 
-The app will be installed with it's own user/group for isolation, and in a
+The app will be installed with its own user/group for isolation, and in a
 specific directory - create some default values for this by adding to
 `defaults/main.yml` - note later on in this section how these values are used
 with Jinja templating:
@@ -348,7 +347,8 @@ Then create the main tasks that are run in `tasks/main.yml`
       notify:
         - "Restart-workshop"
 
-As the service would need to be restarted on config change, create a few handlers:
+As the service would need to be restarted on config change, create a few
+handlers in `handlers/main.yml`:
 
     - name: Start-workshop
       ansible.builtin.service:
